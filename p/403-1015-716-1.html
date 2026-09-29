@@ -1,0 +1,26 @@
+---
+layout: default
+title: 測試訊息
+permalink: /p/403-1015-716-1.html
+---
+<div class="M23">
+<div class="module module-list">
+<section class="mb">
+<div class="mpgtitle"><h2 class="hdline">測試訊息</h2></div>
+<div>
+<table class="listTB table">
+<thead><tr><th>日期</th><th>標題</th><th>點閱</th></tr></thead>
+<tbody>
+{% assign items = site.news | sort: "date" | reverse %}
+{% for n in items %}<tr>
+<td><div class="d-txt">{{ n.date | date: "%Y-%m-%d  %H:%M" }}</div></td>
+<td><div class="d-txt"><div class="mtitle"><a href="{{ n.url | absolute_url }}" title="{{ n.title }}">{{ n.title }}</a></div></div></td>
+<td><div class="d-txt">{{ n.views | default: 0 }}</div></td>
+</tr>
+{% endfor %}</tbody>
+</table>
+</div>
+<div class="mpgbar"><span class="pg-current">1</span></div>
+</section>
+</div>
+</div>

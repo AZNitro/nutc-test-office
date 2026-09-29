@@ -1,0 +1,30 @@
+:root { --fg:#222; --muted:#666; --line:#ddd; --accent:#2b5c8a; --warn:#fff3cd; --warnline:#e0b000; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif; color:var(--fg); background:#fafafa; line-height:1.7; }
+a { color: var(--accent); }
+.testbanner { background: var(--warn); border-bottom: 2px solid var(--warnline); padding: 8px 16px; font-size: 14px; }
+.site-head { display:flex; justify-content:space-between; align-items:center; padding: 12px 16px; background:#fff; border-bottom:1px solid var(--line); flex-wrap:wrap; gap:8px; }
+.site-name { font-weight:700; font-size:18px; text-decoration:none; color:var(--fg); }
+.devbar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding:8px 16px; background:#eef4fa; border-bottom:1px solid var(--line); font-size:14px; }
+.btn { display:inline-block; padding:4px 12px; border-radius:4px; background:var(--accent); color:#fff; text-decoration:none; }
+.btn.ghost { background:transparent; color:var(--accent); border:1px solid var(--accent); }
+.hint, .small { color:var(--muted); font-size:13px; }
+.mcol { max-width: 960px; margin: 16px auto; padding: 0 16px; }
+.module, .home { background:#fff; border:1px solid var(--line); border-radius:6px; padding:16px; margin-bottom:16px; }
+.hdline { font-size: 20px; margin: 0 0 12px; }
+.listTB { width:100%; border-collapse:collapse; }
+.listTB th, .listTB td { border-bottom:1px solid var(--line); padding:8px 6px; text-align:left; vertical-align:top; }
+.listTB td:first-child { white-space:nowrap; color:var(--muted); font-size:14px; }
+.listTB td:last-child { text-align:right; color:var(--muted); }
+.ptinfoproperty { display:flex; flex-wrap:wrap; gap:4px 16px; color:var(--muted); font-size:14px; margin-bottom:12px; }
+.ptinfoproperty i { font-style:normal; }
+.meditor { overflow-wrap:anywhere; }
+.meditor table { border-collapse:collapse; }
+.meditor th, .meditor td { border:1px solid var(--line); padding:4px 8px; }
+.mptattach { list-style:none; padding:0; margin:0; }
+.mptattach li { padding:4px 0; }
+.mptattach img { width:16px; height:16px; vertical-align:-3px; margin-right:6px; }
+.artctrl { color:var(--muted); font-size:14px; text-align:right; }
+.mpgbar { margin-top:12px; text-align:center; }
+.site-foot { text-align:center; color:var(--muted); font-size:13px; padding:24px 16px; }
+@media (max-width: 600px) { .listTB td:last-child, .listTB th:last-child { display:none; } }

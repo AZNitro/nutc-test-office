@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+<div class="testbanner">⚠ 測試站：本站為 Nexus 2.0 專題開發測試用，所有內容皆為<strong>虛構測試資料</strong>，不是任何學校的正式公告。</div>
+<header class="site-head">
+  <a class="site-name" href="{{ site.list_path | relative_url }}">{{ site.title }}</a>
+  <nav><a href="{{ site.list_path | relative_url }}">測試訊息</a></nav>
+</header>
+{% include devbar.html %}
+<main class="mcol">
+{{ content }}
+</main>
+<footer class="site-foot">Nexus 2.0 測試站 · 內容皆為測試資料 · 原始碼 <a href="https://github.com/{{ site.github_repo }}">{{ site.github_repo }}</a></footer>
+</body>
+</html>

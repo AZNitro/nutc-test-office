@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<div class="M23">
+<div class="module module-detail md_style1">
+<div class="module-inner">
+<section class="mb">
+  <div class="mpgtitle"><h2 class="hdline">{{ page.title }}</h2></div>
+  <div class="mcont">
+    <div class="mpgdetail">
+      <div class="ptinfoproperty">
+        <span class="ptinfoproperty_date"><i>發布日期：</i><span>{{ page.date | date: "%Y-%m-%d" }}</span></span>
+        <span class="ptinfoproperty_unit"><i>發布單位：</i><span>{{ page.unit }}</span></span>
+        <span class="ptinfoproperty_update"><i>最後更新日期：</i><span>{{ page.updated | default: page.date | date: "%Y-%m-%d" }}</span></span>
+      </div>
+      <div class="meditor">
+{{ content }}
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+{% if page.attachments and page.attachments.size > 0 %}
+<div class="module module-ptattach">
+<div class="minner">
+<section class="mb">
+<ul class="mptattach">
+{% for a in page.attachments %}<li><a href="{{ '/var/file/test/attach/' | append: a.file | relative_url }}" title="{{ a.name }}(另開新視窗)" target="_blank" rel="noopener"><img src="{{ '/assets/file.svg' | relative_url }}" alt="" />{{ a.name }}</a></li>
+{% endfor %}</ul>
+</section>
+</div>
+</div>
+{% endif %}
+<div class="artctrl"><div class="PtStatistic">瀏覽數：<em>{{ page.views | default: 0 }}</em></div></div>
+</div>

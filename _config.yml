@@ -1,0 +1,32 @@
+title: "Nexus 測試處室（測試站）"
+description: "Nexus 2.0 開發用測試公告站。所有內容皆為虛構測試資料。"
+url: "https://aznitro.github.io"
+baseurl: "/nutc-test-office"
+timezone: Asia/Taipei
+lang: zh-TW
+
+# GitHub 開發者按鈕用
+github_repo: "AZNitro/nutc-test-office"
+github_branch: "main"
+
+# 列表頁固定網址（仿校網 403-1015-716-1）
+list_path: "/p/403-1015-716-1.html"
+
+collections:
+  news:
+    output: true
+    permalink: /p/406-1015-:name,r716.html
+
+defaults:
+  - scope:
+      path: ""
+      type: news
+    values:
+      layout: news
+      unit: "測試處室 課務組"
+
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock

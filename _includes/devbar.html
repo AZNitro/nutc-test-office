@@ -1,0 +1,37 @@
+<div class="devbar" role="region" aria-label="開發者工具">
+  <strong>開發者工具</strong>
+  <a class="btn" id="btn-new" href="https://github.com/{{ site.github_repo }}/new/{{ site.github_branch }}/_news" target="_blank" rel="noopener">＋ 新增貼文</a>
+  <a class="btn" href="https://github.com/{{ site.github_repo }}/upload/{{ site.github_branch }}/var/file/test/attach" target="_blank" rel="noopener">⇪ 上傳附件</a>
+  {% if page.collection == "news" %}
+  <a class="btn" href="https://github.com/{{ site.github_repo }}/edit/{{ site.github_branch }}/{{ page.path }}" target="_blank" rel="noopener">✎ 編輯本篇</a>
+  {% endif %}
+  <a class="btn ghost" href="https://github.com/{{ site.github_repo }}" target="_blank" rel="noopener">GitHub</a>
+  <span class="hint">存檔（commit）後約 1 分鐘網站更新</span>
+</div>
+{%- assign ids = site.news | map: "slug" | sort -%}
+<script>
+(function () {
+  // 新貼文編號 = 目前最大編號 + 1；內容預先帶入範本
+  var ids = [{% for i in ids %}{{ i | plus: 0 }}{% unless forloop.last %},{% endunless %}{% endfor %}];
+  var next = (ids.length ? Math.max.apply(null, ids) : 100000) + 1;
+  var now = new Date(Date.now() + 8 * 3600 * 1000).toISOString(); // 台灣時間
+  var day = now.slice(0, 10), time = now.slice(11, 16);
+  var tpl = [
+    '---',
+    'title: "【測試】請改成公告標題"',
+    'date: ' + day + ' ' + time + ':00 +0800',
+    'updated: ' + day,
+    'views: 0',
+    '# 有附件才留下面三行；檔案先用「上傳附件」放到 var/file/test/attach/',
+    '# attachments:',
+    '#   - name: 【測試】附件名稱.pdf',
+    '#     file: 檔名.pdf',
+    '---',
+    '',
+    '（測試資料）請在這裡寫公告內文。',
+    ''
+  ].join('\n');
+  var a = document.getElementById('btn-new');
+  a.href += '?filename=' + next + '.md&value=' + encodeURIComponent(tpl);
+})();
+</script>
