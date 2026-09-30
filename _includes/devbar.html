@@ -11,9 +11,11 @@
 {%- assign ids = site.news | map: "slug" | sort -%}
 <script>
 (function () {
-  // 新貼文編號 = 目前最大編號 + 1；內容預先帶入範本
+  // 新貼文編號：用「2026-01-01 起算的分鐘數」，時間只會往前，刪掉的編號不會被重複使用；
+  // 萬一比現有最大編號小，就用最大編號 + 1。內容預先帶入範本
   var ids = [{% for i in ids %}{{ i | plus: 0 }}{% unless forloop.last %},{% endunless %}{% endfor %}];
-  var next = (ids.length ? Math.max.apply(null, ids) : 100000) + 1;
+  var byTime = Math.floor((Date.now() - Date.UTC(2026, 0, 1)) / 60000);
+  var next = Math.max(byTime, (ids.length ? Math.max.apply(null, ids) : 100000) + 1);
   var now = new Date(Date.now() + 8 * 3600 * 1000).toISOString(); // 台灣時間
   var day = now.slice(0, 10), time = now.slice(11, 16);
   var tpl = [
